@@ -50,8 +50,8 @@ export default function Philosophy({ onComplete }: { onComplete?: () => void }) 
         // Slow vertical drift (calm float)
         tl.fromTo(el, { y: 20 }, { y: -10, duration: 3, ease: "none" }, 0);
         
-        // The Fade In
-        tl.fromTo(h2, { opacity: 0, filter: "blur(20px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.5 }, 0);
+        // The Fade In (Reduced blur for performance)
+        tl.fromTo(h2, { opacity: 0, filter: "blur(5px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.5 }, 0);
         
         // Digital Glitch Stutter (Pure Opacity & Blur, No Jiggle)
         tl.to(h2, { opacity: 0.1, filter: "blur(5px)", duration: 0.05 }, 0.1);
@@ -74,8 +74,8 @@ export default function Philosophy({ onComplete }: { onComplete?: () => void }) 
       if (num) tl.to(num, { opacity: 0, y: -10, duration: 0.3 }, 0);
       
       if (h2) {
-        // Calmly dissolve away
-        tl.to(h2, { opacity: 0, filter: "blur(20px)", duration: 0.5, ease: "power2.inOut" }, 0);
+        // Calmly dissolve away (Reduced blur for performance)
+        tl.to(h2, { opacity: 0, filter: "blur(5px)", duration: 0.5, ease: "power2.inOut" }, 0);
       }
       tl.to(el, { opacity: 0, duration: 0.1 }, 0.5); // Hide container
       return tl;

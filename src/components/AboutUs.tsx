@@ -30,8 +30,8 @@ function addGlitchToTimeline(tl: gsap.core.Timeline, targetClass: string, startT
   const dur = 1.0;
 
   tl.fromTo([base, s1, s2], 
-    { opacity: 0, filter: "blur(15px)" },
-    { opacity: 1, filter: "blur(4px)", duration: dur * 0.3, ease: "power2.out" },
+    { opacity: 0, filter: "blur(4px)" },
+    { opacity: 1, filter: "blur(0px)", duration: dur * 0.3, ease: "power2.out" },
     startTime
   );
 

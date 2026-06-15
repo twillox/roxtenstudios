@@ -13,9 +13,7 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-snap-type: y proximity;
-}
+
 
 body {
   background-color: var(--bg);
@@ -26,10 +24,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
+
 
 ::-webkit-scrollbar {
   display: none;

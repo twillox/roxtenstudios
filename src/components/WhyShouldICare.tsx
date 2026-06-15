@@ -351,18 +351,18 @@ export default function WhyShouldICare({ onComplete }: { onComplete?: () => void
                     textAlign: 'left', // Force left alignment for a clean 'down by down' reading structure
                     alignItems: 'flex-start',
                     
-                    // --- Super Class Glass Effect ---
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
-                    backdropFilter: 'blur(24px)',
-                    WebkitBackdropFilter: 'blur(24px)',
+                    // --- Super Class Glass Effect (Optimized for GPU) ---
+                    background: 'linear-gradient(135deg, rgba(20,20,20,0.8) 0%, rgba(10,10,10,0.9) 100%)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                     borderLeft: '1px solid rgba(255, 255, 255, 0.04)',
                     borderRight: '1px solid rgba(255, 255, 255, 0.01)',
                     borderBottom: '1px solid rgba(255, 255, 255, 0.01)',
                     borderRadius: '32px',
                     padding: 'clamp(2rem, 4vw, 3rem)',
-                    boxShadow: '0 30px 60px rgba(0,0,0,0.3)',
-                    transform: 'translateZ(0)' // Hardware acceleration for the blur
+                    willChange: 'transform', // Hardware acceleration
+                    transform: 'translateZ(0)' 
                   }}
                 >
                   <div style={{ fontSize: 'clamp(0.8rem, 1.5vw, 1.1rem)', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.15em', fontWeight: 500 }}>
