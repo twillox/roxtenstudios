@@ -83,8 +83,9 @@ export default function Home({ onComplete }: { onComplete?: () => void }) {
   }, { scope: mainWrapperRef });
 
   return (
-    <div 
+    <section 
       ref={mainWrapperRef}
+      className="snap-section"
       style={{ 
         width: '100vw', 
         height: '100vh', 
@@ -234,6 +235,6 @@ export default function Home({ onComplete }: { onComplete?: () => void }) {
         Creative technology studio.
       </footer>
 
-    </div>
+    </section>
   );
 }

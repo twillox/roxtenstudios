@@ -107,7 +107,7 @@ export default function AboutUs() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="editorial-section">
+    <section ref={containerRef} className="editorial-section snap-section">
       <style>{`
         .editorial-section {
           --border-color: rgba(255,255,255,0);

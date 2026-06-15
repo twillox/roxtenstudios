@@ -43,13 +43,18 @@ export default function App() {
       const customEvent = e as CustomEvent;
       if (customEvent.detail) {
         const target = customEvent.detail as HTMLElement;
-        const top = target.getBoundingClientRect().top + window.scrollY;
-        lenis.scrollTo(top, { immediate: true });
+        // Native immediate alignment completely bypasses scrollY math which breaks when mobile URL bars collapse
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });
       }
       lenis.stop();
+      // Instantly kill native finger momentum on mobile
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
     };
     const handleResume = () => {
       lenis.start();
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     };
 
     window.addEventListener('pause-scroll', handlePause);
@@ -74,7 +79,7 @@ export default function App() {
       <Philosophy />
 
       {/* Selected Works Intro - STARK WHITE EDITORIAL SPREAD */}
-      <div style={{ backgroundColor: '#fff', color: '#000', padding: '25vh 5vw 15vh 5vw', borderTop: '1px solid #111', position: 'relative' }}>
+      <div className="snap-section" style={{ backgroundColor: '#fff', color: '#000', padding: '25vh 5vw 15vh 5vw', borderTop: '1px solid #111', position: 'relative' }}>
         <div style={{ fontSize: '0.8rem', letterSpacing: '0.2em', opacity: 0.6, marginBottom: '3rem', fontWeight: 500 }}>
           [ 04 — ROXTEN ARCHIVES ]
         </div>

@@ -208,7 +208,7 @@ export default function StartProject() {
   };
 
   return (
-    <section ref={sectionRef} className="start-project-section">
+    <section ref={sectionRef} className="start-project-section snap-section">
       <style>{`
         .start-project-section {
           --border-color: rgba(0,0,0,0.1);

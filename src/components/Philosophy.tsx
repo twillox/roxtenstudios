@@ -121,7 +121,7 @@ export default function Philosophy() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} style={{ width: '100%', backgroundColor: '#000', position: 'relative' }}>
+    <section ref={containerRef} className="snap-section" style={{ width: '100%', backgroundColor: '#000', position: 'relative' }}>
       <div 
         ref={pinRef} 
         style={{ 
@@ -236,6 +236,6 @@ export default function Philosophy() {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }

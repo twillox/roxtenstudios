@@ -114,7 +114,7 @@ export default function ProjectsGallery() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} style={{ width: '100%', backgroundColor: '#000', position: 'relative' }}>
+    <section ref={containerRef} className="snap-section" style={{ width: '100%', backgroundColor: '#000', position: 'relative' }}>
       <div 
         ref={pinRef} 
         style={{ 

@@ -235,7 +235,7 @@ export default function WhyShouldICare() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} style={{ width: '100%', backgroundColor: '#000', position: 'relative' }}>
+    <section ref={containerRef} className="snap-section" style={{ width: '100%', backgroundColor: '#000', position: 'relative' }}>
       
       {/* The Pinned Viewport */}
       <div 
@@ -390,6 +390,6 @@ export default function WhyShouldICare() {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }
