@@ -37,7 +37,7 @@ const PANELS = [
   }
 ];
 
-export default function WhyShouldICare() {
+export default function WhyShouldICare({ onComplete }: { onComplete?: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const titleWrapperRef = useRef<HTMLDivElement>(null);
@@ -152,13 +152,9 @@ export default function WhyShouldICare() {
       start: "top top",
       once: true,
       onEnter: () => {
-        // Lock scroll immediately at the top of the section
-        window.dispatchEvent(new CustomEvent('pause-scroll', { detail: containerRef.current }));
-
         const masterTl = gsap.timeline({
           onComplete: () => {
-            // Unlock scroll when everything is done playing
-            window.dispatchEvent(new Event('resume-scroll'));
+            if (onComplete) onComplete();
           }
         });
 

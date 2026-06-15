@@ -13,7 +13,7 @@ const STATEMENTS = [
   { num: "05", text: "CULTURE CREATES GROWTH.", duration: 15 },
 ];
 
-export default function Philosophy() {
+export default function Philosophy({ onComplete }: { onComplete?: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const stmtRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -87,9 +87,6 @@ export default function Philosophy() {
       start: "top top",
       once: true,
       onEnter: () => {
-        // Lock the scroll immediately
-        window.dispatchEvent(new CustomEvent('pause-scroll', { detail: containerRef.current }));
-        
         gsap.set(finalRef.current, { opacity: 0 });
         gsap.set(replayBtnRef.current, { opacity: 0, pointerEvents: 'none' });
 
@@ -99,8 +96,7 @@ export default function Philosophy() {
             gsap.to(finalRef.current, { opacity: 1, duration: 0.5 });
             gsap.to(replayBtnRef.current, { opacity: 1, pointerEvents: 'auto', duration: 0.5 });
             
-            // Unlock scroll once the sequence is complete
-            window.dispatchEvent(new Event('resume-scroll'));
+            if (onComplete && !hasPlayed.current) onComplete();
             hasPlayed.current = true;
           }
         });
